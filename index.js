@@ -1,14 +1,13 @@
-const express = require('express')
-const app = express()
+const http = require('http')
 
-app.use(
-  express.urlencoded({
-    extended: true
-  })
-)
+const port = process.env.PORT
 
-app.use(express.json())
+const server = http.createServer((req, res) => {
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'text/html')
+  res.end('<h1>Hello, World!</h1>')
+})
 
-app.post('/todos', (req, res) => {
-  console.log(req.body.todo)
+server.listen(port, () => {
+  console.log(`Server running at port ${port}`)
 })
