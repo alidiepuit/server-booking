@@ -227,5 +227,5 @@ app.post('/booking', (req, res) => {
 module.exports = app.listen(port, (error) => {
     if (error) return console.log(`Error: ${error}`);
     readFile(__dirname + "/theater.txt").then(res => theater = res);
-    console.log(`Server listening on port ${server.address().port}`);
+    console.log(`Server listening on port ${port}`);
 });
